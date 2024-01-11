@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mychatter/pages/register_screen.dart';
-import 'package:mychatter/widgets/custom_button.dart';
-import 'package:mychatter/widgets/custom_text_field.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import '../widgets/custom_button.dart';
+import '../widgets/custom_text_field.dart';
+
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'LOGIN ',
+                  'Register ',
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,
@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
               height: 10.0,
             ),
             CustomButton(
-              buttonTitle: 'Login',
+              buttonTitle: 'Register',
             ),
             const SizedBox(
               height: 10.0,
@@ -75,25 +75,15 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Don\'t have an account ',
+                  'already have an account ',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return RegisterPage();
-                      }),
-                    );
-                  },
-                  child: Text(
-                    'REGISTER',
-                    style: TextStyle(
-                      color: Color(0xffc7EDE6),
-                    ),
+                Text(
+                  'REGISTER',
+                  style: TextStyle(
+                    color: Color(0xffc7EDE6),
                   ),
                 )
               ],
