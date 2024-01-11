@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +19,15 @@ class RegisterPage extends StatelessWidget {
               flex: 1,
             ),
             CircleAvatar(
-              radius: 205.0,
+              radius: 105.0,
               backgroundColor: Colors.white,
               child: CircleAvatar(
-                radius: 200.0,
+                radius: 100.0,
                 backgroundImage: AssetImage('images/sheep.jpg'),
               ),
             ),
             Text(
-              'Scholar Cat',
+              'Sheep Chat',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 32,
@@ -40,6 +39,7 @@ class RegisterPage extends StatelessWidget {
               flex: 2,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Register ',
@@ -80,10 +80,15 @@ class RegisterPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                Text(
-                  'REGISTER',
-                  style: TextStyle(
-                    color: Color(0xffc7EDE6),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Color(0xffc7EDE6),
+                    ),
                   ),
                 )
               ],

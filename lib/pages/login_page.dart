@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mychatter/pages/register_screen.dart';
+
 import 'package:mychatter/widgets/custom_button.dart';
 import 'package:mychatter/widgets/custom_text_field.dart';
 
@@ -20,15 +20,15 @@ class LoginPage extends StatelessWidget {
               flex: 1,
             ),
             CircleAvatar(
-              radius: 205.0,
+              radius: 105.0,
               backgroundColor: Colors.white,
               child: CircleAvatar(
-                radius: 200.0,
+                radius: 100.0,
                 backgroundImage: AssetImage('images/sheep.jpg'),
               ),
             ),
             Text(
-              'Scholar Cat',
+              'Sheep Chat',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 32,
@@ -82,12 +82,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return RegisterPage();
-                      }),
-                    );
+                    Navigator.pushNamed(context, 'RegisterPage');
                   },
                   child: Text(
                     'REGISTER',
