@@ -7,8 +7,6 @@ void main() {
 }
 
 class ScholarChat extends StatelessWidget {
-  const ScholarChat({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

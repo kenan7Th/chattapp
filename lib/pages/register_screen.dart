@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
@@ -8,6 +9,8 @@ const PrimaryColor = Color(0xff2B475E);
 class RegisterPage extends StatelessWidget {
   RegisterPage({Key? key}) : super(key: key);
   static String id = 'registerPage';
+  String? myemail;
+  String? mypassword;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,18 +52,49 @@ class RegisterPage extends StatelessWidget {
               height: 10.0,
             ),
             CustomTextField(
-              myhintext: 'Email',
+              myonChanged: (data) {
+                myemail = data;
+              },
+              myhintext: myemail,
             ),
             const SizedBox(
               height: 10.0,
             ),
             CustomTextField(
+              myonChanged: (data) {
+                mypassword = data;
+              },
               myhintext: 'Password',
             ),
             const SizedBox(
               height: 10.0,
             ),
             CustomButton(
+              myonTap: () async {
+                // var auth = FirebaseAuth.instance;
+
+                // UserCredential userCredential=await auth.createUserWithEmailAndPassword(email: email, password: password);
+
+                var auth = FirebaseAuth.instance;
+
+                try {
+                  // ignore: unused_local_variable
+                  UserCredential userCredential =
+                      await auth.createUserWithEmailAndPassword(
+                    email: myemail,
+                    password: mypassword,
+                  );
+                  // User successfully created
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
+              },
               buttonTitle: 'Register',
             ),
             const SizedBox(
