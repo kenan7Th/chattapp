@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mychatter/constants.dart';
+import 'package:mychatter/pages/register_screen.dart';
 
 import 'package:mychatter/widgets/custom_button.dart';
 import 'package:mychatter/widgets/custom_text_field.dart';
@@ -9,35 +11,50 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2B475E),
+      backgroundColor: kPrimaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Spacer(
-              flex: 1,
+            SizedBox(
+              height: 75,
             ),
-            CircleAvatar(
-              radius: 105.0,
-              backgroundColor: Colors.white,
-              child: CircleAvatar(
-                radius: 100.0,
-                backgroundImage: AssetImage('images/sheep.jpg'),
+            // CircleAvatar(
+            //   radius: 105.0,
+            //   backgroundColor: Colors.white,
+            //   child: CircleAvatar(
+            //     radius: 100.0,
+
+            //     backgroundImage: AssetImage('images/sheep.jpg'),
+            //   ),
+
+            ClipRRect(
+              borderRadius: BorderRadius.circular(100.0),
+              child: Image.asset(
+                'images/sheep.jpg',
+                height: 100,
               ),
             ),
-            Text(
-              'Sheep Chat',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 32,
-                color: Colors.white,
-                fontFamily: 'Pacifico',
-              ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Sheep Chat',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 32,
+                    color: Colors.white,
+                    fontFamily: 'Pacifico',
+                  ),
+                ),
+              ],
             ),
-            Spacer(
-              flex: 2,
+
+            SizedBox(
+              height: 75,
             ),
             Row(
               children: [
@@ -82,7 +99,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'RegisterPage');
+                    Navigator.pushNamed(context, RegisterPage.id);
                   },
                   child: Text(
                     'REGISTER',

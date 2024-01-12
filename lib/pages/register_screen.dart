@@ -2,22 +2,20 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+const PrimaryColor = Color(0xff2B475E);
 
+// ignore: must_be_immutable
+class RegisterPage extends StatelessWidget {
+  RegisterPage({Key? key}) : super(key: key);
+  static String id = 'registerPage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2B475E),
+      backgroundColor: PrimaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
           children: [
-            Spacer(
-              flex: 1,
-            ),
             CircleAvatar(
               radius: 105.0,
               backgroundColor: Colors.white,
@@ -34,9 +32,6 @@ class RegisterPage extends StatelessWidget {
                 color: Colors.white,
                 fontFamily: 'Pacifico',
               ),
-            ),
-            Spacer(
-              flex: 2,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
